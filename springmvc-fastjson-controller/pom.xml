@@ -5,8 +5,14 @@
   <artifactId>springmvc-fastjson-controller</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>springmvc-fastjson-controller Maven Webapp</name>
+  <name>springmvc-fastjson-controller</name>
   <url>http://maven.apache.org</url>
+
+  <parent>
+    <groupId>com.example</groupId>
+    <artifactId>example-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -14,6 +20,27 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
+    <!--spring mvc-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+    </dependency>
+    <!--spring mvc-->
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>springmvc-fastjson-controller</finalName>
