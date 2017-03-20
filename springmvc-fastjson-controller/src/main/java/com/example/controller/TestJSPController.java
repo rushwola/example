@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.controller.common.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,11 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/test/jsp")
-public class TestJSPController {
+public class TestJSPController extends DefaultController{
 
 
     @RequestMapping("/one")
     public  String  testJsp(){
+
 
         return "test";
     }

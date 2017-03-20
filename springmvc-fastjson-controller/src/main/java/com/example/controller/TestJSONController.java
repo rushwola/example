@@ -1,16 +1,28 @@
 package com.example.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.controller.common.BaseController;
+import com.example.controller.common.entity.JsonMsg;
+import com.example.form.SinginForm;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Created by Administrator on 2017/3/18.
  */
 @RestController
-@RequestMapping("test")
-public class TestJSONController {
+@RequestMapping("/test/json")
+public class TestJSONController extends DefaultController {
 
+    @RequestMapping("/exception")
+    public JsonMsg exception() {
 
+        throw new RuntimeException("这是一个测试异常");
+    }
 
+    @RequestMapping(value = "/singin")
+    public JsonMsg singin(SinginForm form) {
+        System.out.print(form);
+        return buildSuccess();
 
+    }
 }
