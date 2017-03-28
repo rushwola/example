@@ -11,8 +11,13 @@ resources/myconfig 自定义的spring配置文件
 resources/servlet-content.xml 　主配置文件
 
 # 报文格式验证
-接收client传过来的  application/json;charset=UTF-8　类型数据，必须要在Controller方法参数据上@RequestBody
-采用JSR 303验证框架+国际化资源
+## 接收client传过来的数据;
+1. application/json;charset=UTF-8　类型数据，必须要在Controller方法参数据上@RequestBody
+2. application/x-www-form-urlencoded   @RequestBody参数可选
+3. multipart/form-data  也是表单提交方式  key=value型式只不过有些key是文件
+    必顺加上　　multipartResolver　对象　才能解析．
+## 报文验工证:
+    采用JSR 303验证框架+国际化资源
 
 # Session管理
 只支持单机的Session管理

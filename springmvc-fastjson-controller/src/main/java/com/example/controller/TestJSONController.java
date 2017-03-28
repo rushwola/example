@@ -25,4 +25,20 @@ public class TestJSONController extends DefaultController {
         return buildSuccess();
 
     }
+
+    @RequestMapping(value = "/singin_2")
+    public JsonMsg singin_2( @RequestBody  SinginForm form) {
+        System.out.print(form);
+        return buildSuccess();
+
+    }
+
+    @RequestMapping(value = "/singin_s")
+    public JsonMsg singin_3(SinginForm form, MultipartFile file) {
+        System.out.println(file);
+        System.out.println(form);
+        return buildSuccess();
+
+    }
+
 }
