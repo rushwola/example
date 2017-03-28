@@ -16,7 +16,7 @@ public class SinginForm {
     /**
      * 账号密码
      */
-    @NotBlank(message = "{accountPW.not.blank}")
+    @NotBlank(message = "accountPW.not.blank")
     private String accountPW;
 
 
