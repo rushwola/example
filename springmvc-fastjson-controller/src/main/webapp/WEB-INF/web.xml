@@ -5,6 +5,22 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:/applicationContext.xml</param-value>
+    </context-param>
+
+    <!-- 环境 Start-->
+    <listener>
+        <listener-class>com.example.controller.common.listener.StartupListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.example.controller.common.listener.ContextListener</listener-class>
+    </listener>
+    <!-- 环境 End-->
+
+    <!-- SpringMvc Start-->
     <servlet>
         <servlet-name>dispatchServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -18,39 +34,52 @@
         <servlet-name>dispatchServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <!-- SpringMvc End-->
+
+
+
+
 
 
     <!-- web异常页面处理 -->
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>
+        <!--suppress WebProperties -->
         <location>/error_500</location>
     </error-page>
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
+        <!--suppress WebProperties -->
         <location>/error_404</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
+        <!--suppress WebProperties -->
         <location>/error_500</location>
     </error-page>
     <error-page>
         <error-code>501</error-code>
+        <!--suppress WebProperties -->
         <location>/error_500</location>
     </error-page>
     <error-page>
         <error-code>502</error-code>
+        <!--suppress WebProperties -->
         <location>/error_500</location>
     </error-page>
     <error-page>
         <error-code>404</error-code>
+        <!--suppress WebProperties -->
         <location>/error_404</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>
+        <!--suppress WebProperties -->
         <location>/error_404</location>
     </error-page>
     <error-page>
         <error-code>400</error-code>
+        <!--suppress WebProperties -->
         <location>/error_404</location>
     </error-page>
 

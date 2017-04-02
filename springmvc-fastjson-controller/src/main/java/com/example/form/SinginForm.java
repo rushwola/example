@@ -1,6 +1,9 @@
 package com.example.form;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Administrator on 2017/3/18.
@@ -16,7 +19,8 @@ public class SinginForm {
     /**
      * 账号密码
      */
-    @NotBlank(message = "accountPW.not.blank")
+    @NotEmpty(message = "{password.empty}")
+    @NotNull(message = "password.empty")
     private String accountPW;
 
 

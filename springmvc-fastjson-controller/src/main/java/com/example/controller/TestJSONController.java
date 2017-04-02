@@ -20,7 +20,6 @@ public class TestJSONController extends DefaultController {
 
     @RequestMapping("/exception")
     public JsonMsg exception() {
-
         throw new RuntimeException("这是一个测试异常");
     }
 
@@ -53,7 +52,6 @@ public class TestJSONController extends DefaultController {
             }
         }
         return buildSuccess();
-
     }
 
     /**

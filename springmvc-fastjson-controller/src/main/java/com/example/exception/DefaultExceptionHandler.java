@@ -2,6 +2,7 @@ package com.example.exception;
 
 import com.alibaba.fastjson.support.spring.FastJsonJsonView;
 import com.example.controller.common.constant.ErrorConstant;
+import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,6 +16,7 @@ import java.util.Map;
  * @Description: 接入层统一异常处理
  * @Date 15:04 2017/3/19
  */
+@Service
 public class DefaultExceptionHandler implements HandlerExceptionResolver {
 
     @Override
@@ -22,16 +24,13 @@ public class DefaultExceptionHandler implements HandlerExceptionResolver {
         ModelAndView mv = new ModelAndView();
 
 
-        mv.setViewName(ErrorConstant.ERROR_500_URL);
-
         /*  使用FastJson提供的FastJsonJsonView视图返回，不需要捕获异常   */
-//        FastJsonJsonView view = new FastJsonJsonView();
-//        Map<String, Object> attributes = new HashMap<String, Object>();
-//        attributes.put("code", "1000001");
-//        attributes.put("msg", e.getMessage());
-//        view.setAttributesMap(attributes);
-//        mv.setView(view);
-//        log.debug("异常:" + ex.getMessage(), ex);
+        FastJsonJsonView view = new FastJsonJsonView();
+        Map<String, Object> attributes = new HashMap<String, Object>();
+        attributes.put("code", "1000001");
+        attributes.put("msg", e.getMessage());
+        view.setAttributesMap(attributes);
+        mv.setView(view);
         return mv;
     }
 }
