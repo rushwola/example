@@ -28,14 +28,6 @@ public class BookController extends DefaultController {
     }
 
 
-    /*
-   * Bind出错，这里是最高优先级的处理
-   */
-    @ExceptionHandler({BindException.class})
-    public ModelAndView handleBindException(final BindException e) {
-
-        return ParamValidateUtils.getParamErrors(e);
-    }
 
 
 }

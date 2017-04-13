@@ -1,8 +1,12 @@
 package com.example.controller.common;
 
+import com.example.controller.common.util.ParamValidateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,4 +26,14 @@ public abstract class BaseController {
 
     @Autowired
     protected HttpServletRequest request;
+
+
+    /*
+     * Bind出错，这里是最高优先级的处理
+     */
+    @ExceptionHandler({BindException.class})
+    public ModelAndView handleBindException(final BindException e) {
+
+        return ParamValidateUtils.getParamErrors(e);
+    }
 }

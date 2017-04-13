@@ -31,3 +31,7 @@ resources/servlet-content.xml 　主配置文件
 # 容器环境初始化　如语言环境和时区环境
 
 # api跨域访问
+
+# 前端js跨域访问
+采用CORS技术支持跨越访问
+
