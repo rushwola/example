@@ -34,3 +34,18 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+/build/
+
+### Eclipse template
+*.pydevproject
+.metadata
+.gradle
+tmp/
+*.tmp
+*.bak
+*.swp
+.settings/
+
+.project
+.classpath
+
