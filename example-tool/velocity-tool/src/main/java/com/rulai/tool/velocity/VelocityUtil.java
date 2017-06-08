@@ -1,4 +1,4 @@
-package com.rulai.velocity;
+package com.rulai.tool.velocity;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,15 +17,15 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
 /**
  * @ClassName VelocityUtil
- * @Description TODO(ÕâÀïÓÃÒ»¾ä»°ÃèÊöÕâ¸öÀàµÄ×÷ÓÃ)
+ * @Description TODO(è¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªç±»çš„ä½œç”¨)
  * @author ly
- * @Date 2017Äê6ÔÂ3ÈÕ ÏÂÎç10:24:16
+ * @Date 2017å¹´6æœˆ8æ—¥ ä¸‹åˆ8:21:27
  * @version 1.0.0
  */
 public class VelocityUtil {
 
 	/**
-	 * @Field @DEFAULT_ENCODING : TODO(Ä¬ÈÏ±àÂë)
+	 * @Field @DEFAULT_ENCODING : TODO(Ä¬ï¿½Ï±ï¿½ï¿½ï¿½)
 	 */
 	private static final String DEFAULT_ENCODING = "utf-8";
 
@@ -36,20 +36,18 @@ public class VelocityUtil {
 	}
 
 	/**
-	 * @Description (TODO½âÎöÄ£°åÎÄ¼ş£¬Êä³öÒ»¸ö½á¹ûÎÄ¼ş,ÎÄ¼şÂ·¾¶classpath)
+	 * @Description (TODOè¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªæ–¹æ³•çš„ä½œç”¨)
 	 * @param inputVmFilePath
-	 *            ÈëÄ£°åÎÄ¼ş
 	 * @param outputFilePath
-	 *            ½á¹ûÎÄ¼ş
 	 * @param contextParmas
-	 *            ÉÏÏÂÎÄ¼ş²ÎÊı
+	 * @param encoding
 	 * @throws IOException
 	 */
 	public static void generate(String inputVmFilePath, String outputFilePath, Map<String, Object> contextParmas,
 			String encoding) throws IOException {
 		FileWriterWithEncoding writer = null;
 		try {
-			// ³õÊ¼»¯Ä£°åÒıÇæ
+			// ï¿½ï¿½Ê¼ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			VelocityEngine ve = new VelocityEngine();
 			ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
 			ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
@@ -78,7 +76,7 @@ public class VelocityUtil {
 	}
 
 	/**
-	 * @Description (TODO½âÎöÄ£°åÎÄ¼şÊä³ö×Ö·û´®)
+	 * @Description (TODOè¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªæ–¹æ³•çš„ä½œç”¨)
 	 * @param inputVmFilePath
 	 * @param contextParmas
 	 * @return
@@ -89,17 +87,17 @@ public class VelocityUtil {
 	}
 
 	/**
-	 * @Description (TODO½âÎöÄ£°åÎÄ¼şÊä³ö×Ö·û´®)
+	 * @Description (TODOï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½)
 	 * @param inputVmFilePath
-	 *            ÈëÄ£°åÎÄ¼ş
+	 *            ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ä¼ï¿½
 	 * @param contextParmas
-	 *            ²ÎÊı
-	 * @return ½á¹û×Ö·û´®
+	 *            ï¿½ï¿½ï¿½ï¿½
+	 * @return ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
 	 * @throws IOException
 	 */
 	public static String generate(String inputVmFilePath, Map<String, Object> contextParmas, String encoding)
 			throws IOException {
-		// ³õÊ¼»¯Ä£°åÒıÇæ
+		// ï¿½ï¿½Ê¼ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Properties p = new Properties();
 		p.put("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
 		Velocity.init(p);

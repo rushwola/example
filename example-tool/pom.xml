@@ -15,6 +15,8 @@
 	<description>示例工具</description>
 	<modules>
 		<module>velocity-tool</module>
+		<module>db-tool</module>
+		<module>core-tool</module>
 	</modules>
 	<dependencyManagement>
 	

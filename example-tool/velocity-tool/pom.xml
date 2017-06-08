@@ -9,6 +9,18 @@
 	<artifactId>velocity-tool</artifactId>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>db-tool</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>core-tool</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	
 		<!-- velocity模板引擎 -->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
@@ -28,5 +40,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
+        
 	</dependencies>
 </project>
