@@ -47,11 +47,13 @@ public class VelocityUtil {
 			String encoding) throws IOException {
 		FileWriterWithEncoding writer = null;
 		try {
-			// ��ʼ��ģ������
-			VelocityEngine ve = new VelocityEngine();
-			ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
-			ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
-			ve.init();
+//			VelocityEngine ve = new VelocityEngine();
+//			ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
+//			ve.setProperty("file.resource.loader.class", ClasspathResourceLoader.class.getName());
+//			ve.init();
+			Properties p = new Properties();
+			p.put("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+			Velocity.init(p);
 			Template template = Velocity.getTemplate(inputVmFilePath, encoding);
 			File outputFile = new File(outputFilePath);
 			writer = new FileWriterWithEncoding(outputFile, encoding);
@@ -86,18 +88,8 @@ public class VelocityUtil {
 		return generate(inputVmFilePath, contextParmas, DEFAULT_ENCODING);
 	}
 
-	/**
-	 * @Description (TODO����ģ���ļ�����ַ���)
-	 * @param inputVmFilePath
-	 *            ��ģ���ļ�
-	 * @param contextParmas
-	 *            ����
-	 * @return ����ַ���
-	 * @throws IOException
-	 */
 	public static String generate(String inputVmFilePath, Map<String, Object> contextParmas, String encoding)
 			throws IOException {
-		// ��ʼ��ģ������
 		Properties p = new Properties();
 		p.put("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
 		Velocity.init(p);
