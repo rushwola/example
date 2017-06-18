@@ -15,17 +15,17 @@ import com.rulai.tool.velocity.entry.MybatisConfigParam;
  */
 public class Generator {
 	
-private static final String  DATABASE="zheng";
+private static final String  DATABASE="rulai";
 	
 	private static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
 	
 	private static final String JDBC_PASSWORD="qding";
 	
-	private static final String JDBC_URL="jdbc:mysql://120.24.181.119:3307/zheng?useUnicode=true&characterEncoding=utf-8&autoReconnect=true";
+	private static final String JDBC_URL="jdbc:mysql://120.24.181.119:3307/rulai?useUnicode=true&characterEncoding=utf-8&autoReconnect=true";
 
 	private static final String JDBC_USERNAME="qding";
 	
-	private static final String TABLE_PREFIX = "upms_";
+	private static final String TABLE_PREFIX = "upsso_";
 	
 	private static final String PACKAGE_NAME = "com.rulai.tool.velocity";
 	
@@ -35,7 +35,7 @@ private static final String  DATABASE="zheng";
 	
 	private static final String TARGET_PROJECT_SQLMAP = "F:/example-git/rulai-example-simple/rulai-upsso/rulai-upsso-dao";
 	static {
-		LAST_INSERT_ID_TABLES.put("upms_user", "user_id");
+		LAST_INSERT_ID_TABLES.put("upsso_user", "user_id");
 	}
 
 	/**

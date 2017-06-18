@@ -48,7 +48,7 @@
         </commentGenerator>
 
         <!-- 数据库连接 -->
-        <!--
+      	 <!--
         <jdbcConnection driverClass="${generator.jdbc.driver}"
                         connectionURL="${generator.jdbc.url}"
                         userId="${generator.jdbc.username}"
