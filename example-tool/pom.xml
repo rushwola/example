@@ -17,6 +17,8 @@
 		<module>velocity-tool</module>
 		<module>db-tool</module>
 		<module>core-tool</module>
+		<module>setting-tool</module>
+		<module>log-tool</module>
 	</modules>
 	<dependencyManagement>
 	
