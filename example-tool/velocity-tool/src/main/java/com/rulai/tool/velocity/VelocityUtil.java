@@ -15,6 +15,8 @@ import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
+import com.rulai.tool.core.io.FileUtil;
+
 /**
  * @ClassName VelocityUtil
  * @Description TODO(这里用一句话描述这个类的作用)
@@ -28,7 +30,6 @@ public class VelocityUtil {
 	 * @Field @DEFAULT_ENCODING : TODO(Ĭ�ϱ���)
 	 */
 	private static final String DEFAULT_ENCODING = "utf-8";
-
 
 	public static void generate(String inputVmFilePath, String outputFilePath, Map<String, Object> contextParmas)
 			throws IOException {
@@ -47,15 +48,20 @@ public class VelocityUtil {
 			String encoding) throws IOException {
 		FileWriterWithEncoding writer = null;
 		try {
-//			VelocityEngine ve = new VelocityEngine();
-//			ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
-//			ve.setProperty("file.resource.loader.class", ClasspathResourceLoader.class.getName());
-//			ve.init();
+			// VelocityEngine ve = new VelocityEngine();
+			// ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
+			// ve.setProperty("file.resource.loader.class",
+			// ClasspathResourceLoader.class.getName());
+			// ve.init();
 			Properties p = new Properties();
 			p.put("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
 			Velocity.init(p);
 			Template template = Velocity.getTemplate(inputVmFilePath, encoding);
 			File outputFile = new File(outputFilePath);
+			FileUtil.mkParentDirs(outputFile);
+			if(!outputFile.exists()){
+				outputFile.createNewFile();
+			}
 			writer = new FileWriterWithEncoding(outputFile, encoding);
 
 			VelocityContext context = new VelocityContext();

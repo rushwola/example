@@ -27,7 +27,7 @@ private static final String  DATABASE="rulai";
 	
 	private static final String TABLE_PREFIX = "upsso_";
 	
-	private static final String PACKAGE_NAME = "com.rulai.tool.velocity";
+	private static final String PACKAGE_NAME = "com.ruali.upsso";
 	
 	private static final Map<String, String> LAST_INSERT_ID_TABLES = new HashMap<>();
 	

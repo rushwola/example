@@ -3,6 +3,8 @@ package com.rulai.framework.generator;
 import static com.rulai.tool.core.util.StrUtil.lineToHump;
 
 import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,11 +15,13 @@ import java.util.Map;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.velocity.VelocityContext;
 
+import com.rulai.tool.core.io.FileUtil;
 import com.rulai.tool.core.util.PropertiesFileUtil;
 import com.rulai.tool.core.util.StrUtil;
 import com.rulai.tool.db.JdbcUtil;
-import com.zheng.common.util.StringUtil;
-import com.zheng.common.util.VelocityUtil;
+import com.rulai.tool.system.SystemUtil;
+import com.rulai.tool.velocity.VelocityUtil;
+import com.rulai.tool.velocity.simple.VelocitySimpleUtil;
 
 /**
  * @ClassName GeneratorUtil
@@ -28,12 +32,19 @@ import com.zheng.common.util.VelocityUtil;
  */
 public class FrameworkGenerator {
 	
-	private static final String   DEFAULT_PRO_FILENAME="generator.properties";
+	//generator.properties
+	private static final String   DEFAULT_PRO_FILENAME="generator";
 	
 	/**
 	 * @Field @DEFAULT_TABLE_NAME_PREFIX_VALUE : table_name_prefix 默认值
 	 */
 	private static final String   DEFAULT_TABLE_NAME_PREFIX_VALUE="_";
+	
+	private static String   DEFAULT_SERVICE_VM_VALUE = "/template/Service.vm";
+	// ServiceMock模板路径
+	private static String DEFAULT_SERVICE_MOCK_VALUE = "/template/ServiceMock.vm";
+	// ServiceImpl模板路径
+	private static String DEFAULT_SERVICE_IMPL_VM = "/template/ServiceImpl.vm";
 	
 	private String propertieName;
 	
@@ -59,29 +70,45 @@ public class FrameworkGenerator {
 	
 	private static final String  JDBC_PASSWORD ="jdbc_password";
 	
+	private static final String  DATABASE ="database";
+	
+	private static final String  MODULE ="module";
+	private static final String  PACKAGE_NAME ="package_name";
+	private static final String  SERVICE_VM="service_vm";
+	private static final String  SERVICE_MOCK_VM="serviceMock_vm";
+	private static final String  SERVICE_IMPL_VM="serviceImpl_vm";
+	private static final String  BASE_DIR="baseDir";
 	
 	
-	private FrameworkGenerator(String propertieName){
+	/************属性文件中的  key************************/
+	
+	
+	
+	
+	public FrameworkGenerator(String propertieName){
 		this.propertieName=propertieName;
 	}
 	
-	private FrameworkGenerator(){
+	public FrameworkGenerator(){
 		this.propertieName=DEFAULT_PRO_FILENAME;
 	}
 	
 	private  String  createSql(){
-		String  tablePrefix=  PropertiesFileUtil.getInstance(DEFAULT_PRO_FILENAME).get(TABLE_PREFIX);
+		String  tablePrefix=  PropertiesFileUtil.getInstance(propertieName).get(TABLE_PREFIX);
 		
-		String tableNamePrefix= PropertiesFileUtil.getInstance(TABLE_NAME_PREFIX).get(TABLE_NAME_PREFIX,DEFAULT_TABLE_NAME_PREFIX_VALUE);
+		String tableNamePrefix= PropertiesFileUtil.getInstance(propertieName).get(TABLE_NAME_PREFIX,DEFAULT_TABLE_NAME_PREFIX_VALUE);
+		String database= PropertiesFileUtil.getInstance(propertieName).get(DATABASE);
 		String tablename="%";
 		if(!StrUtil.isBlank(tablePrefix)){
 			tablename=tablePrefix+tableNamePrefix+"%";
 		}
-		String sql = "SELECT table_name FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = '" + param.getDatabase()
-		+ "' AND table_name LIKE '" + tablename;
+		String sql = "SELECT table_name FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = '" + database
+		+ "' AND table_name LIKE '" + tablename+"'";
+		
+		return sql;
 	}
 
-	public  List<Map> createMode() {
+	public  List<Map<String, Object>> createMode() throws SQLException {
 
 		List<Map<String, Object>> tables = new ArrayList<>();
 
@@ -103,29 +130,46 @@ public class FrameworkGenerator {
 			tables.add(table);
 		}
 		jdbcUtil.release();
-		return result;
+		return tables;
 	}
 
 	/**
+	 * @throws Exception 
 	 * @Description (TODO生成service层代码吗)
 	 */
-	public  void serviceGenerator() {
+	public  void serviceGenerator() throws Exception {
+		
+		String  module=PropertiesFileUtil.getInstance(propertieName).get(MODULE);
+		String  package_name=PropertiesFileUtil.getInstance(propertieName).get(PACKAGE_NAME);
+		
+		List<Map<String, Object>>  tables=this.createMode();
+		
 		
 		System.out.println("========== 开始生成Service ==========");
 		String ctime = new SimpleDateFormat("yyyy/M/d").format(new Date());
-		String servicePath = module + "/" + module + "-rpc-api" + "/src/main/java/"
-				+ package_name.replaceAll("\\.", "/") + "/rpc/api";
-		String serviceImplPath = module + "/" + module + "-rpc-service" + "/src/main/java/"
-				+ package_name.replaceAll("\\.", "/") + "/rpc/service/impl";
+		String servicePath = module + "/" + module + "-facade" + "/src/main/java/"
+				+ package_name.replaceAll("\\.", "/") + "/facade";
+		String serviceImplPath = module + "/" + module + "-service" + "/src/main/java/"
+				+ package_name.replaceAll("\\.", "/") + "/service/impl";
+		
+		String  service_vm=PropertiesFileUtil.getInstance(propertieName).get(SERVICE_VM);
+		String  serviceMock_vm=PropertiesFileUtil.getInstance(propertieName).get(SERVICE_MOCK_VM);
+		String  serviceImpl_vm=PropertiesFileUtil.getInstance(propertieName).get(SERVICE_IMPL_VM);
+		String baseDir=PropertiesFileUtil.getInstance(propertieName).get(BASE_DIR);
+		
 		for (int i = 0; i < tables.size(); i++) {
-			String model = StringUtil.lineToHump(ObjectUtils.toString(tables.get(i).get("table_name")));
+			String model = StrUtil.lineToHump(ObjectUtils.toString(tables.get(i).get("table_name")));
 			String service = servicePath + "/" + model + "Service.java";
+			service=baseDir+SystemUtil.get(SystemUtil.FILE_SEPRATOR)  +service;
 			String serviceMock = servicePath + "/" + model + "ServiceMock.java";
+			serviceMock=baseDir+SystemUtil.get(SystemUtil.FILE_SEPRATOR)+serviceMock;
+			
 			String serviceImpl = serviceImplPath + "/" + model + "ServiceImpl.java";
+			serviceImpl=baseDir+SystemUtil.get(SystemUtil.FILE_SEPRATOR)+serviceImpl;
 			// 生成service
 			File serviceFile = new File(service);
 			if (!serviceFile.exists()) {
-				VelocityContext context = new VelocityContext();
+				Map<String, Object> context = new HashMap<String,Object>();
 				context.put("package_name", package_name);
 				context.put("model", model);
 				context.put("ctime", ctime);
@@ -135,7 +179,7 @@ public class FrameworkGenerator {
 			// 生成serviceMock
 			File serviceMockFile = new File(serviceMock);
 			if (!serviceMockFile.exists()) {
-				VelocityContext context = new VelocityContext();
+				Map<String, Object> context = new HashMap<String,Object>();
 				context.put("package_name", package_name);
 				context.put("model", model);
 				context.put("ctime", ctime);
@@ -145,10 +189,10 @@ public class FrameworkGenerator {
 			// 生成serviceImpl
 			File serviceImplFile = new File(serviceImpl);
 			if (!serviceImplFile.exists()) {
-				VelocityContext context = new VelocityContext();
+				Map<String, Object> context = new HashMap<String,Object>();
 				context.put("package_name", package_name);
 				context.put("model", model);
-				context.put("mapper", StringUtil.toLowerCaseFirstOne(model));
+				context.put("mapper", StrUtil.lowerFirst(model));
 				context.put("ctime", ctime);
 				VelocityUtil.generate(serviceImpl_vm, serviceImpl, context);
 				System.out.println(serviceImpl);

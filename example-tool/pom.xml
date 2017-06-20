@@ -19,6 +19,7 @@
 		<module>core-tool</module>
 		<module>setting-tool</module>
 		<module>log-tool</module>
+		<module>system-tool</module>
 	</modules>
 	<dependencyManagement>
 	
