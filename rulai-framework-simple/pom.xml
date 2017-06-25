@@ -14,5 +14,7 @@
 	<modules>
 		<module>rulai-framework-core</module>
 		<module>rulai-framework-generator</module>
+		<module>rulai-framework-common</module>
+		<module>rulai-framework-sso</module>
 	</modules>
 </project>

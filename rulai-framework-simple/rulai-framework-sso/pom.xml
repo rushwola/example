@@ -2,17 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.example</groupId>
-    <artifactId>rulai-example-simple</artifactId>
+    <artifactId>rulai-framework-simple</artifactId>
     <version>1.0.0</version>
   </parent>
-  <artifactId>rulai-upsso</artifactId>
+  <artifactId>rulai-framework-sso</artifactId>
   <packaging>pom</packaging>
-  <modules>
-  	<module>rulai-upsso-client</module>
-  	<module>rulai-upsso-dao</module>
-  	<module>rulai-upsso-facade</module>
-  	<module>rulai-upsso-service</module>
-  	<module>rulai-upsso-controller</module>
-  	<module>rulai-upsso-common</module>
-  </modules>
 </project>

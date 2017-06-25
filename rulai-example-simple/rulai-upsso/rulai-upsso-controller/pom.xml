@@ -10,9 +10,39 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-core</artifactId> 
+			</dependency> -->
+
+		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> 
+			</dependency> -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
+			<groupId>com.example</groupId>
+			<artifactId>rulai-upsso-common</artifactId>
+			<version>${rulai-example-simple.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>rulai-framework-core</artifactId>
+			<version>${rulai-framework-simple.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>rulai-upsso-facade</artifactId>
+			<version>${rulai-example-simple.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>redis-tool</artifactId>
+			<version>${rulaitool.version}</version>
+		</dependency>
+
 	</dependencies>
 </project>

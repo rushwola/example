@@ -170,10 +170,11 @@
 				<scope>runtime</scope>
 			</dependency>
 
-			<dependency>
+		 	<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>servlet-api</artifactId>
 				<version>2.5</version>
+				<scope>provided</scope>
 			</dependency>
 
 
@@ -277,6 +278,51 @@
 				<artifactId>tinylog</artifactId>
 				<version>1.2</version>
 			</dependency>
+			<!-- swagger2 -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.4.0</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.4.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.javolution</groupId>
+				<artifactId>javolution-core-java</artifactId>
+				<version>6.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java</artifactId>
+				<version>2.5.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.esotericsoftware.kryo</groupId>
+				<artifactId>kryo</artifactId>
+				<version>2.24.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.javakaffee</groupId>
+				<artifactId>kryo-serializers</artifactId>
+				<version>0.27</version>
+			</dependency>
+			<dependency>
+				<groupId>org.msgpack</groupId>
+				<artifactId>msgpack</artifactId>
+				<version>0.6.11</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.ruedigermoeller</groupId>
+				<artifactId>fst</artifactId>
+				<version>2.05</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

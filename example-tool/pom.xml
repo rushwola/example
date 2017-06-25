@@ -20,6 +20,7 @@
 		<module>setting-tool</module>
 		<module>log-tool</module>
 		<module>system-tool</module>
+		<module>redis-tool</module>
 	</modules>
 	<dependencyManagement>
 	
