@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.rulai.framework.sso.client.util.AbstractCasFilter;
 import com.rulai.framework.sso.client.util.CommonUtils;
+import com.rulai.framework.sso.client.validation.Assertion;
 
 /**
  * Filter implementation to intercept all requests and attempt to authenticate

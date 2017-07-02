@@ -1,11 +1,11 @@
 package com.rulai.framework.sso.client.authentication;
 
 
-import org.jasig.cas.client.proxy.ProxyRetriever;
-import org.jasig.cas.client.util.CommonUtils;
-
 import java.util.Collections;
 import java.util.Map;
+
+import com.rulai.framework.sso.client.proxy.ProxyRetriever;
+import com.rulai.framework.sso.client.util.CommonUtils;
 
 /**
  * Concrete implementation of the AttributePrincipal interface.
