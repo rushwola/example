@@ -1,8 +1,8 @@
 package com.ruali.upsso.facade;
 
-import com.rulai.framework.core.service.BaseService;
 import com.ruali.upsso.dao.model.UpssoPermission;
 import com.ruali.upsso.dao.model.UpssoPermissionExample;
+import com.rulai.framework.core.service.BaseService;
 
 /**
 * UpssoPermissionService接口

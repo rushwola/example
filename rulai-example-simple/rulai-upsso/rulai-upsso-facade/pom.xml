@@ -10,16 +10,29 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.example</groupId>
 			<artifactId>rulai-upsso-dao</artifactId>
-			<groupId>com.example</groupId>
-			<version>1.0.0</version>
+			<version>${rulai-example-simple.version}</version>
 		</dependency>
-		
+
 		<dependency>
-			<artifactId>rulai-framework-core</artifactId>
 			<groupId>com.example</groupId>
-			<version>1.0.0</version>
+			<artifactId>rulai-framework-core</artifactId>
+			<version>${rulai-framework-simple.version}</version>
 		</dependency>
-		
+
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

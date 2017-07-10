@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ruali.upsso.dao.model.UpssoSystemExample;
 import com.ruali.upsso.facade.UpssoSystemService;
 import com.ruali.upsso.facade.UpssoUserService;
+import com.rulai.framework.common.util.RedisUtil;
 import com.rulai.framework.core.controller.BaseController;
 import com.rulai.tool.core.util.StrUtil;
 import com.rulai.tool.redis.JCache;
@@ -61,8 +62,8 @@ public class SSOController extends BaseController {
     @Autowired
     private  JCache  jCache;
 
-//    @Autowired
-//    UpssoSessionDao upmsSessionDao;
+    @Autowired
+    UpssoSessionDao upmsSessionDao;
 
     @ApiOperation(value = "认证中心首页")
     @RequestMapping(value = "/index", method = RequestMethod.GET)

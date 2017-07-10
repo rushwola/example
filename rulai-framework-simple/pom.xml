@@ -11,6 +11,13 @@
 		<artifactId>example-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
+	
+	<properties>
+		<rulai-framework-simple.version>1.0.0</rulai-framework-simple.version>
+		<rulaitool.version>0.0.1-SNAPSHOT</rulaitool.version>
+		<rulai-example-simple.version>1.0.0</rulai-example-simple.version>
+	</properties>
+	
 	<modules>
 		<module>rulai-framework-core</module>
 		<module>rulai-framework-generator</module>
