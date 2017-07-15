@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="rulai-upsso-rpc-service"/>
+
+    <dubbo:registry address="zookeeper://120.24.181.119:2181"/>
+
+    <dubbo:protocol name="dubbo" port="20881"/>
+
+    <!-- 系统 -->
+    <bean id="UpssoSystemService" class="com.ruali.upsso.service.impl.UpssoSystemServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoSystemService" ref="UpssoSystemService" timeout="10000"/>
+
+    <!-- 组织 -->
+    <bean id="UpssoOrganizationService" class="com.ruali.upsso.service.impl.UpssoOrganizationServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoOrganizationService" ref="UpssoOrganizationService" timeout="10000"/>
+
+    <!-- 用户组织 -->
+    <bean id="UpssoUserOrganizationService" class="com.ruali.upsso.service.impl.UpssoUserOrganizationServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoUserOrganizationService" ref="UpssoUserOrganizationService" timeout="10000"/>
+
+    <!-- 用户 -->
+    <bean id="UpssoUserService" class="com.ruali.upsso.service.impl.UpssoUserServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoUserService" ref="UpssoUserService" timeout="10000"/>
+
+    <!-- 角色 -->
+    <bean id="UpssoRoleService" class="com.ruali.upsso.service.impl.UpssoRoleServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoRoleService" ref="UpssoRoleService" timeout="10000"/>
+
+    <!-- 权限 -->
+    <bean id="UpssoPermissionService" class="com.ruali.upsso.service.impl.UpssoPermissionServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoPermissionService" ref="UpssoPermissionService" timeout="10000"/>
+
+    <!-- 角色权限 -->
+    <bean id="UpssoRolePermissionService" class="com.ruali.upsso.service.impl.UpssoRolePermissionServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoRolePermissionService" ref="UpssoRolePermissionService" timeout="10000"/>
+
+    <!-- 用户权限 -->
+    <bean id="UpssoUserPermissionService" class="com.ruali.upsso.service.impl.UpssoUserPermissionServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoUserPermissionService" ref="UpssoUserPermissionService" timeout="10000"/>
+
+    <!-- 用户角色 -->
+    <bean id="UpssoUserRoleService" class="com.ruali.upsso.service.impl.UpssoUserRoleServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoUserRoleService" ref="UpssoUserRoleService" timeout="10000"/>
+
+    <!-- 操作日志 -->
+    <bean id="UpssoLogService" class="com.ruali.upsso.service.impl.UpssoLogServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpssoLogService" ref="UpssoLogService" timeout="10000"/>
+
+    <!-- 接口服务 -->
+    <bean id="UpssoApiService" class="com.ruali.upsso.service.impl.UpmsApiServiceImpl"/>
+    <dubbo:service interface="com.ruali.upsso.facade.UpmsApiService" ref="UpssoApiService" timeout="10000"/>
+
+</beans>

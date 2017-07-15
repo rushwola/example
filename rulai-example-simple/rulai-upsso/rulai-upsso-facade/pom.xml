@@ -21,6 +21,12 @@
 			<version>${rulai-framework-simple.version}</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

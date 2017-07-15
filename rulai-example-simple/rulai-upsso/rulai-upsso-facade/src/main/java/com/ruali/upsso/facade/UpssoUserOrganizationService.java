@@ -10,4 +10,11 @@ import com.ruali.upsso.dao.model.UpssoUserOrganizationExample;
 */
 public interface UpssoUserOrganizationService extends BaseService<UpssoUserOrganization, UpssoUserOrganizationExample> {
 
+    /**
+     * 用户组织
+     * @param organizationIds 组织ids
+     * @param id 用户id
+     * @return
+     */
+    int organization(String[] organizationIds, int id);
 }

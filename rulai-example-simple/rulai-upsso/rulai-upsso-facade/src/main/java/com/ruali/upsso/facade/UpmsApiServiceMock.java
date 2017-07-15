@@ -14,6 +14,7 @@ import com.ruali.upsso.dao.model.UpssoRolePermission;
 import com.ruali.upsso.dao.model.UpssoSystem;
 import com.ruali.upsso.dao.model.UpssoSystemExample;
 import com.ruali.upsso.dao.model.UpssoUser;
+import com.ruali.upsso.dao.model.UpssoUserPermission;
 
 /**
  * 降级实现UpmsApiService接口
@@ -54,7 +55,7 @@ public class UpmsApiServiceMock implements UpmsApiService {
     }
 
     @Override
-    public List<UpssoRolePermission> selectUpmsUserPermissionByUpmsUserId(Integer upmsUserId) {
+    public List<UpssoUserPermission> selectUpmsUserPermissionByUpmsUserId(Integer upmsUserId) {
         _log.info("UpmsApiServiceMock => selectUpmsUserPermissionByUpmsUserId");
         return null;
     }

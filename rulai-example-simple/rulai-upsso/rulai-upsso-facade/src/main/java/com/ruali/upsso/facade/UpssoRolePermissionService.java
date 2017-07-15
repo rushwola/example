@@ -1,6 +1,7 @@
 package com.ruali.upsso.facade;
 
 import com.rulai.framework.core.service.BaseService;
+import com.alibaba.fastjson.JSONArray;
 import com.ruali.upsso.dao.model.UpssoRolePermission;
 import com.ruali.upsso.dao.model.UpssoRolePermissionExample;
 
@@ -10,4 +11,11 @@ import com.ruali.upsso.dao.model.UpssoRolePermissionExample;
 */
 public interface UpssoRolePermissionService extends BaseService<UpssoRolePermission, UpssoRolePermissionExample> {
 
+	  /**
+     * 角色权限
+     * @param datas 权限数据
+     * @param id 角色id
+     * @return
+     */
+    int rolePermission(JSONArray datas, int id);
 }

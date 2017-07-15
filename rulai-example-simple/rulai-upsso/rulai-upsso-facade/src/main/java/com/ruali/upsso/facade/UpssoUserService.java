@@ -1,8 +1,8 @@
 package com.ruali.upsso.facade;
 
-import com.rulai.framework.core.service.BaseService;
 import com.ruali.upsso.dao.model.UpssoUser;
 import com.ruali.upsso.dao.model.UpssoUserExample;
+import com.rulai.framework.core.service.BaseService;
 
 /**
 * UpssoUserService接口
@@ -10,4 +10,5 @@ import com.ruali.upsso.dao.model.UpssoUserExample;
 */
 public interface UpssoUserService extends BaseService<UpssoUser, UpssoUserExample> {
 
+	 UpssoUser createUser(UpssoUser upmsUser);
 }

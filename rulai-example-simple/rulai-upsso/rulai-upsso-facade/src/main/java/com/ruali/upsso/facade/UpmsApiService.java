@@ -12,6 +12,7 @@ import com.ruali.upsso.dao.model.UpssoRolePermission;
 import com.ruali.upsso.dao.model.UpssoSystem;
 import com.ruali.upsso.dao.model.UpssoSystemExample;
 import com.ruali.upsso.dao.model.UpssoUser;
+import com.ruali.upsso.dao.model.UpssoUserPermission;
 
 /**
  * upms系统接口
@@ -59,7 +60,7 @@ public interface UpmsApiService {
      * @param upmsUserId
      * @return
      */
-    List<UpssoRolePermission> selectUpmsUserPermissionByUpmsUserId(Integer upmsUserId);
+    List<UpssoUserPermission> selectUpmsUserPermissionByUpmsUserId(Integer upmsUserId);
 
     /**
      * 根据条件获取系统数据

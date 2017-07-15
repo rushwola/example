@@ -9,11 +9,11 @@
 	<artifactId>rulai-upsso-dao</artifactId>
 
 	<dependencies>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.example</groupId>
 			<artifactId>velocity-tool</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>

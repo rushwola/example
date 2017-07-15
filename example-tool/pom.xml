@@ -21,6 +21,7 @@
 		<module>log-tool</module>
 		<module>system-tool</module>
 		<module>redis-tool</module>
+		<module>crypto-tool</module>
 	</modules>
 	<dependencyManagement>
 	

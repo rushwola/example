@@ -16,6 +16,10 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+		</dependency>
+		<dependency>
 			<artifactId>rulai-upsso-dao</artifactId>
 			<groupId>com.example</groupId>
 			<version>1.0.0</version>
