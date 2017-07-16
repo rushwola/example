@@ -1,7 +1,16 @@
 package com.rulai.upsso.clent.shiro.realm;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.shiro.authc.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -16,10 +25,7 @@ import com.ruali.upsso.dao.model.UpssoUser;
 import com.ruali.upsso.facade.UpmsApiService;
 import com.rulai.tool.core.util.MD5Util;
 import com.rulai.tool.core.util.PropertiesFileUtil;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.rulai.tool.core.util.StrUtil;
 
 /**
  * 用户认证和授权
@@ -46,7 +52,7 @@ public class UpmsRealm extends AuthorizingRealm {
         List<UpssoRole> upmsRoles = upmsApiService.selectUpmsRoleByUpmsUserId(upmsUser.getUserId());
         Set<String> roles = new HashSet<>();
         for (UpssoRole upmsRole : upmsRoles) {
-            if (StringUtils.isNotBlank(upmsRole.getName())) {
+            if (StrUtil.isNotBlank(upmsRole.getName())) {
                 roles.add(upmsRole.getName());
             }
         }
@@ -55,7 +61,7 @@ public class UpmsRealm extends AuthorizingRealm {
         List<UpssoPermission> upmsPermissions = upmsApiService.selectUpmsPermissionByUpmsUserId(upmsUser.getUserId());
         Set<String> permissions = new HashSet<>();
         for (UpssoPermission upmsPermission : upmsPermissions) {
-            if (StringUtils.isNotBlank(upmsPermission.getPermissionValue())) {
+            if (StrUtil.isNotBlank(upmsPermission.getPermissionValue())) {
                 permissions.add(upmsPermission.getPermissionValue());
             }
         }

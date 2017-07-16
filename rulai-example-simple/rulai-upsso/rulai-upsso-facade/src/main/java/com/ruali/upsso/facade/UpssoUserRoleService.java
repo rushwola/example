@@ -1,8 +1,8 @@
 package com.ruali.upsso.facade;
 
-import com.rulai.framework.core.service.BaseService;
 import com.ruali.upsso.dao.model.UpssoUserRole;
 import com.ruali.upsso.dao.model.UpssoUserRoleExample;
+import com.rulai.framework.core.api.service.BaseService;
 
 /**
 * UpssoUserRoleService接口

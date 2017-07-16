@@ -1,4 +1,4 @@
-package com.rulai.framework.core.db;
+package com.rulai.framework.core.api.db;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -11,7 +11,7 @@ import com.ruali.upsso.dao.mapper.UpssoUserMapper;
 import com.ruali.upsso.dao.model.UpssoUser;
 import com.ruali.upsso.dao.model.UpssoUserExample;
 import com.ruali.upsso.facade.UpssoUserService;
-import com.rulai.framework.core.service.BaseServiceImpl;
+import com.rulai.framework.core.api.service.BaseServiceImpl;
 
 /**
 * UpssoUserService实现

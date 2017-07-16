@@ -1,4 +1,4 @@
-package com.rulai.framework.core.util;
+package com.rulai.framework.core.api.util;
 
 import java.util.Map;
 

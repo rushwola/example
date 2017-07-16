@@ -23,5 +23,6 @@
 		<module>rulai-framework-generator</module>
 		<module>rulai-framework-common</module>
 		<module>rulai-framework-sso</module>
+		<module>rulai-framework-core-api</module>
 	</modules>
 </project>

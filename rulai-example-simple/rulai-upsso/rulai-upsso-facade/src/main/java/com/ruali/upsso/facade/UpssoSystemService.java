@@ -1,8 +1,8 @@
 package com.ruali.upsso.facade;
 
-import com.rulai.framework.core.service.BaseService;
 import com.ruali.upsso.dao.model.UpssoSystem;
 import com.ruali.upsso.dao.model.UpssoSystemExample;
+import com.rulai.framework.core.api.service.BaseService;
 
 /**
 * UpssoSystemService接口

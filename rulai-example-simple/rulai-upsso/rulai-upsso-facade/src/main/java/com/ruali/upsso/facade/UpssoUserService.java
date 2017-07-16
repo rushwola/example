@@ -2,7 +2,7 @@ package com.ruali.upsso.facade;
 
 import com.ruali.upsso.dao.model.UpssoUser;
 import com.ruali.upsso.dao.model.UpssoUserExample;
-import com.rulai.framework.core.service.BaseService;
+import com.rulai.framework.core.api.service.BaseService;
 
 /**
 * UpssoUserService接口

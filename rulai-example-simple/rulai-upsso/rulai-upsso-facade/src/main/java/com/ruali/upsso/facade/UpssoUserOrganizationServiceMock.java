@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import com.ruali.upsso.dao.mapper.UpssoUserOrganizationMapper;
 import com.ruali.upsso.dao.model.UpssoUserOrganization;
 import com.ruali.upsso.dao.model.UpssoUserOrganizationExample;
-import com.rulai.framework.core.service.BaseServiceMock;
+import com.rulai.framework.core.api.service.BaseServiceMock;
 
 /**
  * 降级实现UpssoUserOrganizationService接口 Created by shuzheng on 2017/6/20.

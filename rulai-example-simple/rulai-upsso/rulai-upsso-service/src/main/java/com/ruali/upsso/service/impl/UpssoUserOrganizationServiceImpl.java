@@ -11,7 +11,7 @@ import com.ruali.upsso.dao.mapper.UpssoUserOrganizationMapper;
 import com.ruali.upsso.dao.model.UpssoUserOrganization;
 import com.ruali.upsso.dao.model.UpssoUserOrganizationExample;
 import com.ruali.upsso.facade.UpssoUserOrganizationService;
-import com.rulai.framework.core.service.BaseServiceImpl;
+import com.rulai.framework.core.api.service.BaseServiceImpl;
 import com.rulai.tool.core.convert.Convert;
 import com.rulai.tool.core.util.StrUtil;
 

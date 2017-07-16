@@ -1,8 +1,8 @@
 package com.ruali.upsso.facade;
 
-import com.rulai.framework.core.service.BaseService;
 import com.ruali.upsso.dao.model.UpssoLog;
 import com.ruali.upsso.dao.model.UpssoLogExample;
+import com.rulai.framework.core.api.service.BaseService;
 
 /**
 * UpssoLogService接口

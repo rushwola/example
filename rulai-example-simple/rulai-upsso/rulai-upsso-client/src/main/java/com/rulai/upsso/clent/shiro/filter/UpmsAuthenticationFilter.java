@@ -10,7 +10,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -34,6 +33,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.rulai.framework.common.util.RedisUtil;
 import com.rulai.framework.common.util.RequestParameterUtil;
 import com.rulai.tool.core.util.PropertiesFileUtil;
+import com.rulai.tool.core.util.StrUtil;
 import com.rulai.upsso.clent.shiro.session.UpmsSessionDao;
 import com.rulai.upsso.common.constant.UpmsConstant;
 
@@ -85,7 +85,7 @@ public class UpmsAuthenticationFilter extends AuthenticationFilter {
         HttpServletRequest httpServletRequest = WebUtils.toHttp(request);
         StringBuffer backurl = httpServletRequest.getRequestURL();
         String queryString = httpServletRequest.getQueryString();
-        if (StringUtils.isNotBlank(queryString)) {
+        if (StrUtil.isNotBlank(queryString)) {
             backurl.append("?").append(queryString);
         }
         sso_server_url.append("&").append("backurl").append("=").append(URLEncoder.encode(backurl.toString(), "utf-8"));
@@ -104,7 +104,7 @@ public class UpmsAuthenticationFilter extends AuthenticationFilter {
         int timeOut = (int) session.getTimeout() / 1000;
         // 判断局部会话是否登录
         String cacheClientSession = RedisUtil.get(ZHENG_UPMS_CLIENT_SESSION_ID + "_" + session.getId());
-        if (StringUtils.isNotBlank(cacheClientSession)) {
+        if (StrUtil.isNotBlank(cacheClientSession)) {
             // 更新code有效期
             RedisUtil.set(ZHENG_UPMS_CLIENT_SESSION_ID + "_" + sessionId, cacheClientSession, timeOut);
             Jedis jedis = RedisUtil.getJedis();
@@ -126,7 +126,7 @@ public class UpmsAuthenticationFilter extends AuthenticationFilter {
         // 判断是否有认证中心code
         String code = request.getParameter("upms_code");
         // 已拿到code
-        if (StringUtils.isNotBlank(code)) {
+        if (StrUtil.isNotBlank(code)) {
             // HttpPost去校验code
             try {
                 StringBuffer sso_server_url = new StringBuffer(PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.sso.server.url"));

@@ -1,16 +1,17 @@
 package com.ruali.upsso.service.impl;
 
 
-import com.rulai.framework.core.service.BaseServiceImpl;
-import com.ruali.upsso.dao.mapper.UpssoRoleMapper;
-import com.ruali.upsso.dao.model.UpssoRole;
-import com.ruali.upsso.dao.model.UpssoRoleExample;
-import com.ruali.upsso.facade.UpssoRoleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.ruali.upsso.dao.mapper.UpssoRoleMapper;
+import com.ruali.upsso.dao.model.UpssoRole;
+import com.ruali.upsso.dao.model.UpssoRoleExample;
+import com.ruali.upsso.facade.UpssoRoleService;
+import com.rulai.framework.core.api.service.BaseServiceImpl;
 
 /**
 * UpssoRoleService实现

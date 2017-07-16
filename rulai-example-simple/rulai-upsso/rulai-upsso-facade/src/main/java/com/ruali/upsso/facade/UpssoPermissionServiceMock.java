@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.ruali.upsso.dao.mapper.UpssoPermissionMapper;
 import com.ruali.upsso.dao.model.UpssoPermission;
 import com.ruali.upsso.dao.model.UpssoPermissionExample;
-import com.rulai.framework.core.service.BaseServiceMock;
+import com.rulai.framework.core.api.service.BaseServiceMock;
 
 /**
 * 降级实现UpssoPermissionService接口

@@ -20,7 +20,12 @@
 			<artifactId>rulai-upsso-common</artifactId>
 			<version>${rulai-example-simple.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>rulai-upsso-client</artifactId>
+			<version>${rulai-example-simple.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>rulai-framework-core</artifactId>

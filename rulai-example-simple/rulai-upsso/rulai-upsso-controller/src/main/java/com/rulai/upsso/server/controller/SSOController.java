@@ -6,7 +6,6 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.BooleanUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
@@ -28,8 +27,11 @@ import com.ruali.upsso.facade.UpssoSystemService;
 import com.ruali.upsso.facade.UpssoUserService;
 import com.rulai.framework.common.util.RedisUtil;
 import com.rulai.framework.core.controller.BaseController;
+import com.rulai.tool.core.convert.Convert;
 import com.rulai.tool.core.util.StrUtil;
 import com.rulai.tool.redis.JCache;
+import com.rulai.upsso.clent.shiro.session.UpmsSession;
+import com.rulai.upsso.clent.shiro.session.UpmsSessionDao;
 import com.rulai.upsso.common.constant.UpmsResult;
 import com.rulai.upsso.common.constant.UpmsResultConstant;
 
@@ -63,7 +65,7 @@ public class SSOController extends BaseController {
     private  JCache  jCache;
 
     @Autowired
-    UpssoSessionDao upmsSessionDao;
+    UpmsSessionDao upmsSessionDao;
 
     @ApiOperation(value = "认证中心首页")
     @RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -135,7 +137,7 @@ public class SSOController extends BaseController {
             // 使用shiro认证
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
             try {
-                if (BooleanUtils.toBoolean(rememberMe)) {
+                if (Convert.toBool(rememberMe)) {
                     usernamePasswordToken.setRememberMe(true);
                 } else {
                     usernamePasswordToken.setRememberMe(false);

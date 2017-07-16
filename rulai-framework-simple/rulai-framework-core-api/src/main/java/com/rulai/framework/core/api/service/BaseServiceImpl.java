@@ -1,4 +1,4 @@
-package com.rulai.framework.core.service;
+package com.rulai.framework.core.api.service;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -7,9 +7,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.pagehelper.PageHelper;
-import com.rulai.framework.core.db.DataSourceEnum;
-import com.rulai.framework.core.db.DynamicDataSource;
-import com.rulai.framework.core.util.SpringContextUtil;
+import com.rulai.framework.core.api.db.DataSourceEnum;
+import com.rulai.framework.core.api.db.DynamicDataSource;
+import com.rulai.framework.core.api.util.SpringContextUtil;
 import com.rulai.tool.core.util.StrUtil;
 
 /**

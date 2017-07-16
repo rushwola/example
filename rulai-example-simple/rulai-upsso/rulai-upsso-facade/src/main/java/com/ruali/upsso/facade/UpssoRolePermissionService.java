@@ -1,9 +1,9 @@
 package com.ruali.upsso.facade;
 
-import com.rulai.framework.core.service.BaseService;
 import com.alibaba.fastjson.JSONArray;
 import com.ruali.upsso.dao.model.UpssoRolePermission;
 import com.ruali.upsso.dao.model.UpssoRolePermissionExample;
+import com.rulai.framework.core.api.service.BaseService;
 
 /**
 * UpssoRolePermissionService接口

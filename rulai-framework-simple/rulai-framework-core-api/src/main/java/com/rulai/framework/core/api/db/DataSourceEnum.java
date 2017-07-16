@@ -1,4 +1,4 @@
-package com.rulai.framework.core.db;
+package com.rulai.framework.core.api.db;
 
 /**
  * 多数据源枚举

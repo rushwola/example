@@ -12,6 +12,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEParameterSpec;
 
 import com.rulai.tool.core.io.IoUtil;
+import com.rulai.tool.core.lang.Base64;
 import com.rulai.tool.core.util.CharsetUtil;
 import com.rulai.tool.core.util.HexUtil;
 import com.rulai.tool.core.util.RandomUtil;
@@ -163,6 +164,15 @@ public class SymmetricCrypto {
 	
 	/**
 	 * 加密，使用UTF-8编码
+	 * @param 被加密的字符串
+	 * @return 加密后的base64
+	 */
+	public String  encryptBase64(String data){
+		return Base64.encode(encrypt(data));
+	}
+	
+	/**
+	 * 加密，使用UTF-8编码
 	 * @param data 被加密的字符串
 	 * @return 加密后的Hex
 	 */
@@ -239,6 +249,17 @@ public class SymmetricCrypto {
 	 */
 	public byte[] decrypt(String data) {
 		return decrypt(HexUtil.decodeHex(data));
+	}
+	
+	
+	/**
+	 * 解密
+	 * @param data  被解密的 base64  String
+	 * @return  解密后的String
+	 */
+	public String  decryptBase64(String data){
+		
+		return new String(decrypt(Base64.decode(data)));
 	}
 	
 	/**

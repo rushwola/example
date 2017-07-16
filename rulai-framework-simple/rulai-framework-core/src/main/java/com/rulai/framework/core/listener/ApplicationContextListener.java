@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
 import com.rulai.framework.common.annotation.BaseService;
-import com.rulai.framework.common.base.BaseInterface;
+import com.rulai.framework.core.api.base.BaseInterface;
 
 
 

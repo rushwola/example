@@ -1,9 +1,9 @@
 package com.ruali.upsso.facade;
 
-import com.rulai.framework.core.service.BaseServiceMock;
 import com.ruali.upsso.dao.mapper.UpssoSystemMapper;
 import com.ruali.upsso.dao.model.UpssoSystem;
 import com.ruali.upsso.dao.model.UpssoSystemExample;
+import com.rulai.framework.core.api.service.BaseServiceMock;
 
 /**
 * 降级实现UpssoSystemService接口

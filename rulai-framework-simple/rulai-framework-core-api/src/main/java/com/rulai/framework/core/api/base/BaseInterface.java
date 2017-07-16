@@ -1,4 +1,4 @@
-package com.rulai.framework.common.base;
+package com.rulai.framework.core.api.base;
 
 /**
  * 系统接口

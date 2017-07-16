@@ -1,4 +1,4 @@
-package com.rulai.framework.core.service;
+package com.rulai.framework.core.api.service;
 
 import org.apache.ibatis.annotations.Param;
 

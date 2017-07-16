@@ -6,13 +6,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.NumberUtils;
 
 import com.ruali.upsso.dao.mapper.UpssoUserRoleMapper;
 import com.ruali.upsso.dao.model.UpssoUserRole;
 import com.ruali.upsso.dao.model.UpssoUserRoleExample;
 import com.ruali.upsso.facade.UpssoUserRoleService;
-import com.rulai.framework.core.service.BaseServiceImpl;
+import com.rulai.framework.core.api.service.BaseServiceImpl;
 import com.rulai.tool.core.convert.Convert;
 import com.rulai.tool.core.util.StrUtil;
 

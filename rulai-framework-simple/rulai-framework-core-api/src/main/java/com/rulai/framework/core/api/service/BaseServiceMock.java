@@ -1,8 +1,10 @@
-package com.rulai.framework.core.service;
+package com.rulai.framework.core.api.service;
+
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.rulai.framework.core.api.service.BaseService;
 
 /**
  * 降级实现BaseService抽象类

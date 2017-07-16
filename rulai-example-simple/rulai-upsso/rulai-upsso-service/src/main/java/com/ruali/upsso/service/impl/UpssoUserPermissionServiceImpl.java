@@ -13,7 +13,7 @@ import com.ruali.upsso.dao.mapper.UpssoUserPermissionMapper;
 import com.ruali.upsso.dao.model.UpssoUserPermission;
 import com.ruali.upsso.dao.model.UpssoUserPermissionExample;
 import com.ruali.upsso.facade.UpssoUserPermissionService;
-import com.rulai.framework.core.service.BaseServiceImpl;
+import com.rulai.framework.core.api.service.BaseServiceImpl;
 
 /**
 * UpssoUserPermissionService实现

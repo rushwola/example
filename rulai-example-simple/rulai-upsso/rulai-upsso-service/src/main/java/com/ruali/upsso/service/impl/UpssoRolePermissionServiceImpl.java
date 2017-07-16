@@ -16,7 +16,7 @@ import com.ruali.upsso.dao.mapper.UpssoRolePermissionMapper;
 import com.ruali.upsso.dao.model.UpssoRolePermission;
 import com.ruali.upsso.dao.model.UpssoRolePermissionExample;
 import com.ruali.upsso.facade.UpssoRolePermissionService;
-import com.rulai.framework.core.service.BaseServiceImpl;
+import com.rulai.framework.core.api.service.BaseServiceImpl;
 
 /**
 * UpssoRolePermissionService实现
