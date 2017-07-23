@@ -9,6 +9,15 @@
 	<artifactId>rulai-upsso-service</artifactId>
 
 	<dependencies>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		
+		
 		<dependency>
 			<artifactId>rulai-upsso-facade</artifactId>
 			<groupId>com.example</groupId>
