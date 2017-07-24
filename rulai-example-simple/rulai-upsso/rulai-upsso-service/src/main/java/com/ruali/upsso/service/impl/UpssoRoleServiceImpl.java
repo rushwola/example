@@ -11,6 +11,7 @@ import com.ruali.upsso.dao.mapper.UpssoRoleMapper;
 import com.ruali.upsso.dao.model.UpssoRole;
 import com.ruali.upsso.dao.model.UpssoRoleExample;
 import com.ruali.upsso.facade.UpssoRoleService;
+import com.rulai.framework.common.annotation.BaseService;
 import com.rulai.framework.core.api.service.BaseServiceImpl;
 
 /**
@@ -19,6 +20,7 @@ import com.rulai.framework.core.api.service.BaseServiceImpl;
 */
 @Service
 @Transactional
+@BaseService
 public class UpssoRoleServiceImpl extends BaseServiceImpl<UpssoRoleMapper, UpssoRole, UpssoRoleExample> implements UpssoRoleService {
 
     private static Logger _log = LoggerFactory.getLogger(UpssoRoleServiceImpl.class);

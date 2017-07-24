@@ -9,15 +9,15 @@
 	<artifactId>rulai-upsso-service</artifactId>
 
 	<dependencies>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		
-		
+
+
+
 		<dependency>
 			<artifactId>rulai-upsso-facade</artifactId>
 			<groupId>com.example</groupId>
@@ -59,6 +59,10 @@
 		<dependency>
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 		</dependency>
 	</dependencies>
 

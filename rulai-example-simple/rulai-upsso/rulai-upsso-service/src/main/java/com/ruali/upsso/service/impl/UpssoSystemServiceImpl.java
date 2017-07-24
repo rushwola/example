@@ -11,6 +11,7 @@ import com.ruali.upsso.dao.mapper.UpssoSystemMapper;
 import com.ruali.upsso.dao.model.UpssoSystem;
 import com.ruali.upsso.dao.model.UpssoSystemExample;
 import com.ruali.upsso.facade.UpssoSystemService;
+import com.rulai.framework.common.annotation.BaseService;
 import com.rulai.framework.core.api.service.BaseServiceImpl;
 
 /**
@@ -19,6 +20,7 @@ import com.rulai.framework.core.api.service.BaseServiceImpl;
 */
 @Service
 @Transactional
+@BaseService
 public class UpssoSystemServiceImpl extends BaseServiceImpl<UpssoSystemMapper, UpssoSystem, UpssoSystemExample> implements UpssoSystemService {
 
     private static Logger _log = LoggerFactory.getLogger(UpssoSystemServiceImpl.class);

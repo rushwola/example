@@ -11,6 +11,7 @@ import com.ruali.upsso.dao.mapper.UpssoUserOrganizationMapper;
 import com.ruali.upsso.dao.model.UpssoUserOrganization;
 import com.ruali.upsso.dao.model.UpssoUserOrganizationExample;
 import com.ruali.upsso.facade.UpssoUserOrganizationService;
+import com.rulai.framework.common.annotation.BaseService;
 import com.rulai.framework.core.api.service.BaseServiceImpl;
 import com.rulai.tool.core.convert.Convert;
 import com.rulai.tool.core.util.StrUtil;
@@ -21,6 +22,7 @@ import com.rulai.tool.core.util.StrUtil;
 */
 @Service
 @Transactional
+@BaseService
 public class UpssoUserOrganizationServiceImpl extends BaseServiceImpl<UpssoUserOrganizationMapper, UpssoUserOrganization, UpssoUserOrganizationExample> implements UpssoUserOrganizationService {
 
     private static Logger _log = LoggerFactory.getLogger(UpssoUserOrganizationServiceImpl.class);

@@ -23,6 +23,7 @@ import com.ruali.upsso.dao.model.UpssoUserPermission;
 import com.ruali.upsso.dao.model.UpssoUserPermissionExample;
 import com.ruali.upsso.facade.UpmsApiService;
 import com.ruali.upsso.facade.UpssoPermissionService;
+import com.rulai.framework.common.annotation.BaseService;
 import com.rulai.framework.core.api.service.BaseServiceImpl;
 
 /**
@@ -31,6 +32,7 @@ import com.rulai.framework.core.api.service.BaseServiceImpl;
 */
 @Service
 @Transactional
+@BaseService
 public class UpssoPermissionServiceImpl extends BaseServiceImpl<UpssoPermissionMapper, UpssoPermission, UpssoPermissionExample> implements UpssoPermissionService {
 
     private static Logger _log = LoggerFactory.getLogger(UpssoPermissionServiceImpl.class);
