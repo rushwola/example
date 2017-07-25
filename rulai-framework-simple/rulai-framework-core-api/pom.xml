@@ -9,7 +9,13 @@
 	<artifactId>rulai-framework-core-api</artifactId>
 
 	<dependencies>
-
+		
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>rulai-framework-common</artifactId>
+			<version>${rulai-framework-simple.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>

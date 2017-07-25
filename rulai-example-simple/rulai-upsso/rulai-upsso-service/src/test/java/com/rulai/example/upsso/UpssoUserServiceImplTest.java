@@ -31,9 +31,10 @@ public class UpssoUserServiceImplTest {
 		
 		UpssoUserExample example=new UpssoUserExample();
 		
-		int num=upssoUserService.countByExample(example);
+		int num=-1;
+		num=upssoUserService.countByExample(example);
 		
-		assertTrue("测试", num>=0);
+		assertTrue("测试失败", num>0);
 	}
 
 	

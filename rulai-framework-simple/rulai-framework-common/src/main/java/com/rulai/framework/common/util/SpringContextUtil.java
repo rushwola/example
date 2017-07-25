@@ -15,7 +15,6 @@ import org.springframework.context.ApplicationContextAware;
  */
 public class SpringContextUtil implements ApplicationContextAware {
 
-	@Autowired
 	private static ApplicationContext context = null;
 
 	private SpringContextUtil() {
@@ -25,6 +24,7 @@ public class SpringContextUtil implements ApplicationContextAware {
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		context = applicationContext;
+		System.out.println("context:初始化完成,hashcode="+context.hashCode());
 	}
 
 	/**
