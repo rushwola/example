@@ -24,5 +24,6 @@
 		<module>rulai-framework-common</module>
 		<module>rulai-framework-sso</module>
 		<module>rulai-framework-core-api</module>
+		<module>rulai-framework-admin-ui</module>
 	</modules>
 </project>

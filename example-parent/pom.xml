@@ -116,8 +116,15 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${servlet-api.version}</version>
+				<scope>provided</scope>
 			</dependency>
-
+			<!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>2.0</version>
+				<scope>provided</scope>
+			</dependency>
 			<!-- mybatis -->
 			<dependency>
 				<groupId>org.mybatis</groupId>
@@ -384,6 +391,12 @@
 				<groupId>com.github.sgroschupf</groupId>
 				<artifactId>zkclient</artifactId>
 				<version>0.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -25,7 +25,7 @@
 			<artifactId>rulai-upsso-client</artifactId>
 			<version>${rulai-example-simple.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>rulai-framework-core</artifactId>
@@ -41,12 +41,32 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>redis-tool</artifactId>
 			<version>${rulaitool.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
 		</dependency>
 
 	</dependencies>
