@@ -10,11 +10,16 @@
 	<packaging>war</packaging>
 
 	<dependencies>
-		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-core</artifactId> 
-			</dependency> -->
-
-		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> 
-			</dependency> -->
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>rulai-upsso-facade</artifactId>
+			<version>${rulai-example-simple.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>rulai-framework-admin-ui</artifactId>
+			<version>${rulai-framework-simple.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>rulai-upsso-common</artifactId>
@@ -30,12 +35,6 @@
 			<groupId>com.example</groupId>
 			<artifactId>rulai-framework-core</artifactId>
 			<version>${rulai-framework-simple.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>rulai-upsso-facade</artifactId>
-			<version>${rulai-example-simple.version}</version>
 		</dependency>
 
 		<dependency>
@@ -69,5 +68,80 @@
 			<artifactId>jstl</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+		</dependency>
+		<!-- 缓存 -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
+
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env>dev</env>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<env>test</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<env>prod</env>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<finalName>rulai-upsso-controller</finalName>
+		<filters>
+			<filter>src/main/resources/profiles/${env}.properties</filter>
+		</filters>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- jetty插件 -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<!--<version>9.0.0.v20130308</version> -->
+				<version>9.2.7.v20150116</version>
+				<configuration>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/</contextPath>
+					</webApp>
+					<httpConnector>
+						<port>1111</port>
+					</httpConnector>
+					<reload>automatic</reload>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<skipTests>true</skipTests>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

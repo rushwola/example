@@ -1,13 +1,19 @@
 package com.rulai.upsso.server.controller.manage;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ruali.upsso.dao.model.UpssoLog;
 import com.ruali.upsso.dao.model.UpssoLogExample;
@@ -17,9 +23,8 @@ import com.rulai.tool.core.util.StrUtil;
 import com.rulai.upsso.common.constant.UpmsResult;
 import com.rulai.upsso.common.constant.UpmsResultConstant;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * 日志controller
