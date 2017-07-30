@@ -3,8 +3,10 @@ package com.rulai.framework.common.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.rulai.framework.common.plugin.EncryptPropertyPlaceholderConfigurer;
 import com.rulai.tool.core.util.PropertiesFileUtil;
 import com.rulai.tool.core.util.StrUtil;
+import com.rulai.tool.crypto.SecureUtil;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -13,8 +15,7 @@ import redis.clients.jedis.JedisPoolConfig;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Redis 工具类
- * Created by shuzheng on 2016/11/26.
+ * Redis 工具类 Created by shuzheng on 2016/11/26.
  */
 public class RedisUtil {
 
@@ -30,7 +31,11 @@ public class RedisUtil {
 	private static int PORT = PropertiesFileUtil.getInstance("redis").getInt("master.redis.port");
 
 	// 访问密码
-	private static String PASSWORD = AESUtil.AESDecode(PropertiesFileUtil.getInstance("redis").get("master.redis.password"));
+	// private static String PASSWORD =
+	// AESUtil.AESDecode(PropertiesFileUtil.getInstance("redis").get("master.redis.password"));
+
+	private static String PASSWORD = SecureUtil.aes(EncryptPropertyPlaceholderConfigurer.ENCODE_RULES.getBytes())
+			.decryptBase64(PropertiesFileUtil.getInstance("redis").get("master.redis.password"));
 	// 可用连接实例的最大数目，默认值为8；
 	// 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
 	private static int MAX_ACTIVE = PropertiesFileUtil.getInstance("redis").getInt("master.redis.max_active");
@@ -52,9 +57,9 @@ public class RedisUtil {
 	/**
 	 * redis过期时间,以秒为单位
 	 */
-	public final static int EXRP_HOUR = 60 * 60;            //一小时
-	public final static int EXRP_DAY = 60 * 60 * 24;        //一天
-	public final static int EXRP_MONTH = 60 * 60 * 24 * 30;    //一个月
+	public final static int EXRP_HOUR = 60 * 60; // 一小时
+	public final static int EXRP_DAY = 60 * 60 * 24; // 一天
+	public final static int EXRP_MONTH = 60 * 60 * 24 * 30; // 一个月
 
 	/**
 	 * 初始化Redis连接池
@@ -81,9 +86,9 @@ public class RedisUtil {
 		}
 	}
 
-
 	/**
 	 * 同步获取Jedis实例
+	 * 
 	 * @return Jedis
 	 */
 	public synchronized static Jedis getJedis() {
@@ -106,6 +111,7 @@ public class RedisUtil {
 
 	/**
 	 * 设置 String
+	 * 
 	 * @param key
 	 * @param value
 	 */
@@ -122,6 +128,7 @@ public class RedisUtil {
 
 	/**
 	 * 设置 byte[]
+	 * 
 	 * @param key
 	 * @param value
 	 */
@@ -137,9 +144,11 @@ public class RedisUtil {
 
 	/**
 	 * 设置 String 过期时间
+	 * 
 	 * @param key
 	 * @param value
-	 * @param seconds 以秒为单位
+	 * @param seconds
+	 *            以秒为单位
 	 */
 	public synchronized static void set(String key, String value, int seconds) {
 		try {
@@ -154,9 +163,11 @@ public class RedisUtil {
 
 	/**
 	 * 设置 byte[] 过期时间
+	 * 
 	 * @param key
 	 * @param value
-	 * @param seconds 以秒为单位
+	 * @param seconds
+	 *            以秒为单位
 	 */
 	public synchronized static void set(byte[] key, byte[] value, int seconds) {
 		try {
@@ -171,6 +182,7 @@ public class RedisUtil {
 
 	/**
 	 * 获取String值
+	 * 
 	 * @param key
 	 * @return value
 	 */
@@ -186,6 +198,7 @@ public class RedisUtil {
 
 	/**
 	 * 获取byte[]值
+	 * 
 	 * @param key
 	 * @return value
 	 */
@@ -201,6 +214,7 @@ public class RedisUtil {
 
 	/**
 	 * 删除值
+	 * 
 	 * @param key
 	 */
 	public synchronized static void remove(String key) {
@@ -215,6 +229,7 @@ public class RedisUtil {
 
 	/**
 	 * 删除值
+	 * 
 	 * @param key
 	 */
 	public synchronized static void remove(byte[] key) {
@@ -229,6 +244,7 @@ public class RedisUtil {
 
 	/**
 	 * lpush
+	 * 
 	 * @param key
 	 * @param key
 	 */
@@ -244,6 +260,7 @@ public class RedisUtil {
 
 	/**
 	 * lrem
+	 * 
 	 * @param key
 	 * @param count
 	 * @param value
@@ -260,6 +277,7 @@ public class RedisUtil {
 
 	/**
 	 * sadd
+	 * 
 	 * @param key
 	 * @param value
 	 * @param seconds

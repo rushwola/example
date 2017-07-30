@@ -22,14 +22,14 @@ import javax.servlet.http.HttpServletResponse;
 public class UpmsInterceptor extends HandlerInterceptorAdapter {
 
     private static Logger _log = LoggerFactory.getLogger(UpmsInterceptor.class);
-    private static final String ZHENG_OSS_ALIYUN_OSS_POLICY = PropertiesFileUtil.getInstance("zheng-oss-client").get("zheng.oss.aliyun.oss.policy");
+    private static final String RULAI_OSS_ALIYUN_OSS_POLICY = PropertiesFileUtil.getInstance("rulai-oss-client").get("rulai.oss.aliyun.oss.policy");
 
     @Autowired
     UpmsApiService upmsApiService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        request.setAttribute("ZHENG_OSS_ALIYUN_OSS_POLICY", ZHENG_OSS_ALIYUN_OSS_POLICY);
+        request.setAttribute("RULAI_OSS_ALIYUN_OSS_POLICY", RULAI_OSS_ALIYUN_OSS_POLICY);
         // 过滤ajax
         if (null != request.getHeader("X-Requested-With") && request.getHeader("X-Requested-With").equalsIgnoreCase("XMLHttpRequest")) {
             return true;
