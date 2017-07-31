@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.example</groupId>
+		<groupId>com.rulai</groupId>
 		<artifactId>rulai-framework-simple</artifactId>
 		<version>1.0.0</version>
 	</parent>
@@ -10,18 +10,18 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>core-tool</artifactId>
 			<version>${rulaitool.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>rulai-framework-core-api</artifactId>
 			<version>${rulai-framework-simple.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>rulai-framework-common</artifactId>
 			<version>${rulai-framework-simple.version}</version>
 		</dependency>
@@ -88,7 +88,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>core-tool</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

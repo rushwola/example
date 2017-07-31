@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.example</groupId>
+		<groupId>com.rulai</groupId>
 		<artifactId>rulai-upsso</artifactId>
 		<version>1.0.0</version>
 	</parent>
@@ -20,17 +20,17 @@
 
 		<dependency>
 			<artifactId>rulai-upsso-facade</artifactId>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<version>${rulai-example-simple.version}</version>
 		</dependency>
 		<dependency>
 			<artifactId>rulai-upsso-dao</artifactId>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<version>${rulai-example-simple.version}</version>
 		</dependency>
 		<dependency>
 			<artifactId>rulai-framework-core</artifactId>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<version>${rulai-example-simple.version}</version>
 		</dependency>
 

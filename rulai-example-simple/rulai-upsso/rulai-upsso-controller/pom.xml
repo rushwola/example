@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.example</groupId>
+		<groupId>com.rulai</groupId>
 		<artifactId>rulai-upsso</artifactId>
 		<version>1.0.0</version>
 	</parent>
@@ -11,28 +11,28 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>rulai-upsso-facade</artifactId>
 			<version>${rulai-example-simple.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>rulai-framework-admin-ui</artifactId>
 			<version>${rulai-framework-simple.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>rulai-upsso-common</artifactId>
 			<version>${rulai-example-simple.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>rulai-upsso-client</artifactId>
 			<version>${rulai-example-simple.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>rulai-framework-core</artifactId>
 			<version>${rulai-framework-simple.version}</version>
 		</dependency>
@@ -50,7 +50,7 @@
 			<artifactId>jsp-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>com.rulai</groupId>
 			<artifactId>redis-tool</artifactId>
 			<version>${rulaitool.version}</version>
 		</dependency>
