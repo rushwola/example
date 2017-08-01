@@ -34,6 +34,9 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+# log
+logs/
+
 ## eclipse files:
 .classpath
 .project
