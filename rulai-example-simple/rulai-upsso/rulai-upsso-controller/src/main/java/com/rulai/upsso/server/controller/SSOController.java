@@ -61,8 +61,8 @@ public class SSOController extends BaseController {
     @Autowired
     UpssoUserService upmsUserService;
     
-    @Autowired
-    private  JCache  jCache;
+//    @Autowired
+//    private  JCache  jCache;
 
     @Autowired
     UpmsSessionDao upmsSessionDao;
@@ -93,7 +93,7 @@ public class SSOController extends BaseController {
         Session session = subject.getSession();
         String serverSessionId = session.getId().toString();
         // 判断是否已登录，如果已登录，则回跳
-        String code = jCache.getStr(ZHENG_UPMS_SERVER_SESSION_ID + "_" + serverSessionId);
+        String code = RedisUtil.get(ZHENG_UPMS_SERVER_SESSION_ID + "_" + serverSessionId);
         // code校验值
         if (StrUtil.isNotBlank(code)) {
             // 回跳
@@ -131,7 +131,7 @@ public class SSOController extends BaseController {
         Session session = subject.getSession();
         String sessionId = session.getId().toString();
         // 判断是否已登录，如果已登录，则回跳，防止重复登录
-        String hasCode = jCache.getStr(ZHENG_UPMS_SERVER_SESSION_ID + "_" + sessionId);
+        String hasCode = RedisUtil.get(ZHENG_UPMS_SERVER_SESSION_ID + "_" + sessionId);
         // code校验值
         if (StrUtil.isBlank(hasCode)) {
             // 使用shiro认证
@@ -175,7 +175,7 @@ public class SSOController extends BaseController {
     @ResponseBody
     public Object code(HttpServletRequest request) {
         String codeParam = request.getParameter("code");
-        String code = jCache.getStr(ZHENG_UPMS_SERVER_CODE + "_" + codeParam);
+        String code = RedisUtil.get(ZHENG_UPMS_SERVER_CODE + "_" + codeParam);
         if (StrUtil.isBlank(codeParam) || !codeParam.equals(code)) {
             new UpmsResult(UpmsResultConstant.FAILED, "无效code");
         }

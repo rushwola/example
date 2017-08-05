@@ -41,15 +41,15 @@
 	<select id="selectUpmsPermissionByUpmsUserId" parameterType="java.lang.Integer" resultMap="UpmsPermissionResultMap">
 		select
 			<include refid="UpmsPermission_Column_List" />
-		from upms_permission up where up.`status`=1 and up.permission_id in (
-			select permission_id from upms_role_permission urp where urp.role_id in (
-				select uur.role_id role_id from upms_user_role uur where uur.user_id=#{upmsUserId,jdbcType=INTEGER}
+		from upsso_permission up where up.`status`=1 and up.permission_id in (
+			select permission_id from upsso_role_permission urp where urp.role_id in (
+				select uur.role_id role_id from upsso_user_role uur where uur.user_id=#{upmsUserId,jdbcType=INTEGER}
 			)
 			union
-			select permission_id from upms_user_permission uup1 where uup1.user_id=#{upmsUserId,jdbcType=INTEGER} and uup1.type=1
+			select permission_id from upsso_user_permission uup1 where uup1.user_id=#{upmsUserId,jdbcType=INTEGER} and uup1.type=1
 		)
 		and up.permission_id not in (
-			select permission_id from upms_user_permission uup2 where uup2.user_id=#{upmsUserId,jdbcType=INTEGER} and uup2.type=-1
+			select permission_id from upsso_user_permission uup2 where uup2.user_id=#{upmsUserId,jdbcType=INTEGER} and uup2.type=-1
 		) order by up.orders asc
 	</select>
 
@@ -57,8 +57,8 @@
 	<select id="selectUpmsRoleByUpmsUserId" parameterType="java.lang.Integer" resultMap="UpmsRoleResultMap">
 		select
 			<include refid="UpmsRole_Column_List" />
-		from upms_role ur where ur.role_id in (
-			select uur.role_id from upms_user_role uur where uur.user_id=#{upmsUserId,jdbcType=INTEGER}
+		from upsso_role ur where ur.role_id in (
+			select uur.role_id from upsso_user_role uur where uur.user_id=#{upmsUserId,jdbcType=INTEGER}
 		)
 	</select>
 

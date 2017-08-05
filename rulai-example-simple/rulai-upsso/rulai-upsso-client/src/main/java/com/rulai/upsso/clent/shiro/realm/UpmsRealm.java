@@ -83,7 +83,7 @@ public class UpmsRealm extends AuthorizingRealm {
         String username = (String) authenticationToken.getPrincipal();
         String password = new String((char[]) authenticationToken.getCredentials());
         // client无密认证
-        String upmsType = PropertiesFileUtil.getInstance("ruali-upsso-client").get("rulai.upsso.type");
+        String upmsType = PropertiesFileUtil.getInstance("rulai-upsso-client").get("rulai.upsso.type");
         if ("client".equals(upmsType)) {
             return new SimpleAuthenticationInfo(username, password, getName());
         }
